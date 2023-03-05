@@ -24,7 +24,7 @@ namespace calculator
             oprators = new HashSet<string>();
             numbers = new HashSet<char>();
             signValues = new Dictionary<char, int>();
-            asciiValues= new Dictionary<int, char>();
+            asciiValues = new Dictionary<int, char>();
             canInput = true;
 
             signValues.Add('+', 1);
@@ -42,7 +42,7 @@ namespace calculator
             asciiValues.Add(105, '9');
             asciiValues.Add(191, '÷');
             asciiValues.Add(111, '÷');
-            asciiValues.Add(106,'x');
+            asciiValues.Add(106, 'x');
             asciiValues.Add(186, 'x');
             asciiValues.Add(109, '-');
             asciiValues.Add(189, '-');
@@ -89,7 +89,7 @@ namespace calculator
             char next = '\0';
             char previous = '\0';
             char current;
-            //+-55+---65 = -11
+            
             for (int i = 0; i < length; i++)
             {
 
@@ -403,12 +403,12 @@ namespace calculator
         private void del_Click(object sender, EventArgs e)
         {
             if (canInput && result.Text.Length > 0)
-                   result.Text = result.Text.Remove(result.Text.Length - 1);
+                result.Text = result.Text.Remove(result.Text.Length - 1);
         }
 
         private void ac_Click(object sender, EventArgs e)
         {
-
+            
             result.Text = "";
             canInput = true;
         }
@@ -416,50 +416,60 @@ namespace calculator
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-           
-            if (canInput) {
+            
+
+            if (e.KeyValue == 46)
+            {
+                result.Text = "";
+                canInput = true;
+            }
+
+            if (canInput)
+            {
 
 
-                    if (char.IsDigit((char)e.KeyValue))
+                if (char.IsDigit((char)e.KeyValue))
+                {
+                    result.Text += ((char)e.KeyValue);
+                }
+                else if (asciiValues.ContainsKey(e.KeyValue))
+                {
+                    result.Text += asciiValues[e.KeyValue];
+                }
+                 
+                else if (e.KeyValue == 8)
+                {
+                    if (result.Text.Length > 0)
+                        result.Text = result.Text.Remove(result.Text.Length - 1);
+                }
+                else if (e.KeyCode == Keys.Enter)
+                {
+                    try
                     {
-                        result.Text += ((char)e.KeyValue);
-                    }
-                    else if (asciiValues.ContainsKey(e.KeyValue))
-                    {
-                        result.Text += asciiValues[e.KeyValue];
-                    }
-                    else if (e.KeyValue == 46 )
-                    {
-                         result.Text = "";
-                         canInput = true;
-                    }
-                    else if (e.KeyValue == 8)
-                    {
-                    if(result.Text.Length>0)
-                    result.Text = result.Text.Remove(result.Text.Length - 1);
-                    }
-                    else if (e.KeyCode == Keys.Enter)
-                    {
-                        try
-                        {
-                            List<string> postfixList = InfixToPostfix(preparingString(result.Text));
-                            result.Text = PostfixEvaluation(postfixList).ToString();
+                        List<string> postfixList = InfixToPostfix(preparingString(result.Text));
+                        string text = PostfixEvaluation(postfixList).ToString();
+                        result.Text = text;
 
-                        }
-                        catch (Exception ex)
-                        {
-                            canInput = false;
-                            result.Text = "Error 😡";
-                        }
                     }
-                
+                    catch (Exception ex)
+                    {
+                        canInput = false;
+                        result.Text = "Error 😡";
+                    }
+                }
+
 
 
 
 
 
             }
-                
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -123,7 +123,6 @@
             equalButton.TabIndex = 1;
             equalButton.Text = "=";
             equalButton.Click += equalButton_Click;
-            
             // 
             // zero
             // 
@@ -143,7 +142,6 @@
             zero.TabIndex = 2;
             zero.Text = "0";
             zero.Click += zero_Click;
-            
             // 
             // point
             // 
@@ -163,7 +161,6 @@
             point.TabIndex = 3;
             point.Text = ".";
             point.Click += point_Click;
-            
             // 
             // one
             // 
@@ -183,7 +180,6 @@
             one.TabIndex = 4;
             one.Text = "1";
             one.Click += one_Click;
-            
             // 
             // tow
             // 
@@ -203,7 +199,6 @@
             tow.TabIndex = 5;
             tow.Text = "2";
             tow.Click += tow_Click;
-            
             // 
             // three
             // 
@@ -223,7 +218,6 @@
             three.TabIndex = 6;
             three.Text = "3";
             three.Click += three_Click;
-            
             // 
             // six
             // 
@@ -243,7 +237,6 @@
             six.TabIndex = 9;
             six.Text = "6";
             six.Click += six_Click;
-            
             // 
             // five
             // 
@@ -263,7 +256,6 @@
             five.TabIndex = 8;
             five.Text = "5";
             five.Click += five_Click;
-            
             // 
             // four
             // 
@@ -283,7 +275,6 @@
             four.TabIndex = 7;
             four.Text = "4";
             four.Click += four_Click;
-            
             // 
             // nine
             // 
@@ -303,7 +294,6 @@
             nine.TabIndex = 12;
             nine.Text = "9";
             nine.Click += nine_Click;
-            
             // 
             // eight
             // 
@@ -323,7 +313,6 @@
             eight.TabIndex = 11;
             eight.Text = "8";
             eight.Click += eight_Click;
-            
             // 
             // seven
             // 
@@ -343,7 +332,6 @@
             seven.TabIndex = 10;
             seven.Text = "7";
             seven.Click += seven_Click;
-           
             // 
             // sum
             // 
@@ -363,7 +351,6 @@
             sum.TabIndex = 13;
             sum.Text = "+";
             sum.Click += sum_Click;
-            
             // 
             // sub
             // 
@@ -383,7 +370,6 @@
             sub.TabIndex = 14;
             sub.Text = "-";
             sub.Click += sub_Click;
-            
             // 
             // division
             // 
@@ -403,7 +389,6 @@
             division.TabIndex = 18;
             division.Text = "÷";
             division.Click += division_Click;
-            
             // 
             // multiply
             // 
@@ -423,7 +408,6 @@
             multiply.TabIndex = 17;
             multiply.Text = "x";
             multiply.Click += multiply_Click;
-            
             // 
             // del
             // 
@@ -443,7 +427,6 @@
             del.TabIndex = 16;
             del.Text = "del";
             del.Click += del_Click;
-            
             // 
             // ac
             // 
@@ -463,7 +446,6 @@
             ac.TabIndex = 15;
             ac.Text = "AC";
             ac.Click += ac_Click;
-            
             // 
             // result
             // 
@@ -546,6 +528,7 @@
             KeyPreview = true;
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             KeyDown += Form1_KeyDown;
             ResumeLayout(false);
         }
